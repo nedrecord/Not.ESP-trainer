@@ -36,7 +36,6 @@
 <body>
   <header>
     <div id="deckName">Not.ESP Trainer</div>
-    <div id="progress"></div>
   </header>
   <main>
     <div class="card">
@@ -54,7 +53,6 @@
     const imgEl = document.getElementById('img');
     const answerEl = document.getElementById('answer');
     const stage = document.getElementById('stage');
-    const progressEl = document.getElementById('progress');
     const deckNameEl = document.getElementById('deckName');
     const againBtn = document.getElementById('againBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -88,8 +86,6 @@
     }
 
     function render(){
-      const due=state.cards.filter(c=>c.next<=Date.now()).length;
-      progressEl.textContent=`${due}/${state.cards.length} due`;
       const card=state.cards[state.index];
       imgEl.src=card.img;
       answerEl.textContent=card.a ?? card.answer ?? "";
