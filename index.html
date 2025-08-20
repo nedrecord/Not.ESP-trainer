@@ -112,9 +112,26 @@
       render();
     }
 
-    stage.addEventListener('click', flip);
-    againBtn.addEventListener('click', ()=>advance(false));
-    nextBtn.addEventListener('click', ()=>advance(true));
+function randomOtherIndex() {
+  if (state.cards.length < 2) return state.index;
+  let i;
+  do { i = Math.floor(Math.random() * state.cards.length); } while (i === state.index);
+  return i;
+}
+
+stage.addEventListener('click', flip);
+
+// AGAIN: keep same card, just hide the answer
+againBtn.addEventListener('click', () => {
+  answerEl.style.display = 'none';
+  imgEl.style.display = 'block';
+});
+
+// NEXT: show a different card
+nextBtn.addEventListener('click', () => {
+  state.index = randomOtherIndex();
+  render();
+});
 
     (async()=>{ 
       state=await loadDeck(); 
