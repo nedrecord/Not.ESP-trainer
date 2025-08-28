@@ -200,6 +200,10 @@
     {
       "img": "images/card-50.jpg",
       "a": "positive"
+    },
+    {
+      "img": "images/card-51.jpg",
+      "a": "bright"
     }
   ]
 }
